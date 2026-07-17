@@ -28,6 +28,10 @@
           {
             "type": "command",
             "command": "$HOME/.claude/hooks/notify-mac.sh"
+          },
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/notify-windows.ps1\""
           }
         ]
       }
