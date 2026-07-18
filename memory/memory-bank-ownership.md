@@ -19,5 +19,8 @@ would defeat that.
 
 **How to apply:** keep CLAUDE.md, rules/, agents/, commands/, hooks/ in
 `~/claude-memory-bank` current as things change, commit there freely with
-clear messages, never commit in any other repo. Full rule text lives in
-`rules/git-github.md` in that repo. See [[mainframe-layout]].
+clear messages, never commit in any other repo. Always `git pull` before
+committing: Ian works on the PC concurrently and both machines push to the
+same remote, so check for and carefully resolve merge conflicts rather than
+assuming a clean fast-forward (his instruction, 2026-07-18). Full rule text
+lives in `rules/git-github.md` in that repo. See [[mainframe-layout]].
