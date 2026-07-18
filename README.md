@@ -9,15 +9,19 @@ machines.
 `downloads/`, `backups/`, `policy-limits.json`, `remote-settings.json`.
 
 ## Layout
-- `CLAUDE.md` — global instructions, loaded in every session
-- `settings.json` — permissions, hooks, env vars
-- `rules/` — standing rules, one file per topic, imported by `CLAUDE.md`
-- `commands/` — custom slash commands
-- `agents/` — custom subagents
-- `hooks/` — scripts for global hooks wired up in `settings.json` (deterministic
+- `CLAUDE.md`: global instructions, loaded in every session
+- `settings.json`: permissions, hooks, env vars
+- `rules/`: standing rules, one file per topic, imported by `CLAUDE.md`
+- `commands/`: custom slash commands
+- `agents/`: custom subagents
+- `hooks/`: scripts for global hooks wired up in `settings.json` (deterministic
   automation, not something Claude decides to do, runs on every matching
   trigger). Project-specific hooks (e.g. a formatter that only applies to one
   repo) live in that repo's own `.claude/`, not here.
+- `memory/`: Claude's cross-machine session memory (one fact per file plus
+  the `MEMORY.md` index). Each installer symlinks the home-dir project's
+  memory directory under `~/.claude/projects/` to this folder, so memories
+  written on one machine reach the other through git.
 
 ## Install
 Run the installer for your machine from `install/`:
