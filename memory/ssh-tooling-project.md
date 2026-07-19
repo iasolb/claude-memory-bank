@@ -43,10 +43,11 @@ State as of 2026-07-19 (evening, Mac session):
   conversion verified byte-exact. Hardening that came out of it (all in
   machine-sync, committed and pushed by Ian as e2cde40, confirmed in the
   Mac clone 2026-07-19 evening):
-  - `Host mac` pins IP 10.0.0.9, NOT the .local name: Windows mDNS
-    resolution is intermittent (works maybe half the time). If transfers
-    fail, the Mac's DHCP lease drifted; durable fix is a router reservation.
-    `StrictHostKeyChecking accept-new` is set.
+  - `Host mac` pins the Mac's IP, NOT the .local name: Windows mDNS
+    resolution is intermittent (works maybe half the time).
+    `StrictHostKeyChecking accept-new` is set. Router reservations landed
+    2026-07-19 (Mac 10.0.0.225, PC 10.0.0.186, see [[pc-ssh-access]]) and
+    the pin was updated from 10.0.0.9, so drift should be over.
   - PC PowerShell resolves ssh AND tar to Git for Windows' builds (PATH
     shadowing); scripts pin System32 natives explicitly. Git's ssh cannot
     resolve .local; Git's GNU tar cannot take `C:\` in `-C`.
