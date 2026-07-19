@@ -63,13 +63,12 @@ State as of 2026-07-19 (evening, Mac session):
     on a beta seed, 25G5057c). Every /usr/bin shim (git AND python3) died
     through it, and each hit fired the "install developer tools" popup Ian
     kept seeing. Interactive shells never saw it (Homebrew git 2.55.0 and
-    pyenv python win in PATH). Fix given to Ian 2026-07-19: switch the dev
-    dir to CLT (`sudo xcode-select -s /Library/Developer/CommandLineTools`,
-    verified via DEVELOPER_DIR simulation: Apple Git 2.50.1, python3
-    3.9.6), then purge Xcode.app (4.0G) plus
-    ~/Library/Developer/{CoreSimulator,Xcode,XCPGDevices,XCTestDevices}
-    (4.1G), Ian does no Xcode/iOS dev. CLT (2.9G) stays. Retest push --csv
-    from the PC.
+    pyenv python win in PATH). RESOLVED 2026-07-19: Ian switched the dev
+    dir to CLT (`sudo xcode-select -s /Library/Developer/CommandLineTools`)
+    and purged Xcode.app plus all of ~/Library/Developer (~8G freed, he
+    does no Xcode/iOS dev). Verified after: shims resolve through CLT
+    (Apple Git 2.50.1, python3 3.9.6, exit 0), popup gone. CLT (2.9G)
+    stays, do not suggest removing it. Retest push --csv from the PC.
 - Python 3.13.14 installed on the PC via winget 2026-07-19 (Ian's choice),
   user PATH puts it ahead of the Store stubs in any new terminal. csv-utf8
   verified end-to-end on it (cp1252/utf-16/utf-8-sig fixtures converted,
