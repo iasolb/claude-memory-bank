@@ -16,6 +16,12 @@ he said non-negotiable (2026-07-18). The top-level Music/ beats and tags are
 also live production material. Never propose moving or archiving these to
 free space. See [[mainframe-layout]].
 
+Boundary (2026-07-19): "ableton is my business." Production is entirely
+Ian's domain: don't proactively raise Ableton topics (relinking, library
+organization, anything), especially from the PC, where he does no
+production. If Ableton help is ever wanted, he'll ask, and it'll be from
+the Mac.
+
 Reorganized 2026-07-18 into a by-sound-type taxonomy Ian chose: Drums/
 (Kicks, Snares, Claps, Hats, Cymbals, Percussion, 808s & Bass, Kits/ for
 intact producer kits), Melodic/ (Loops, One Shots), Vocals/, FX/, MIDI/,

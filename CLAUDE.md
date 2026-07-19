@@ -6,9 +6,8 @@ Currently on co-op as Marketing Analyst at Wayfair: day-to-day work happens in
 JupyterLab running on a GCP Vertex AI Workbench VM (browser-based, not a local
 install), no conda, just pip + pyenv. Primary data source is BigQuery (GBQ).
 Work is read/analysis-heavy: pulling data, validating it, and building
-cleaners/analysis scripts, not writing back to source tables. Looking for a
-fall 2026 co-op next, ideally somewhere data infrastructure drives supply
-chain, finance, or operations decisions. Previously interned as a research
+cleaners/analysis scripts, not writing back to source tables. Fall 2026
+co-op: returning to Wayfair. Previously interned as a research
 software engineer with Dartmouth College's Research Computing team (2024,
 now archived).
 

@@ -11,9 +11,10 @@ Resolved 2026-07-19: the "proper pipeline for filing things between systems"
 became **machine-sync**, built this session inside the myToolBox monorepo at
 `~/claude/myToolBox` on the PC (git repo, committed and pushed by Ian
 2026-07-19; the mystery
-"ssh tooling system" turned out to be his work `workbench-sync` utility,
-kept locally at `myToolBox/workbench-sync-master` and gitignored as
-Wayfair-derived reference).
+"ssh tooling system" turned out to be his work `workbench-sync` utility.
+Reference copies of it are deleted from both personal machines per Ian
+2026-07-19, "those are not for here": work code stays at work. PC copy
+removed same day; Mac copy pending a reachable ssh session).
 
 What machine-sync is: peer-to-peer tar-over-ssh transfer, commands on both
 machines. PC gets `pull.mac`/`push.mac`/`pull.mac.claude`/`push.mac.claude`
