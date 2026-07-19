@@ -7,10 +7,12 @@ metadata:
 
 Set up 2026-07-18: Windows OpenSSH Server runs on the PC (see [[pc-layout]]),
 and the Mac's `~/.ssh/id_ed25519` key is installed in the PC's
-`C:\ProgramData\ssh\administrators_authorized_keys`. Connect with
-`ssh ians0@10.0.0.186` (LAN IP, could change with DHCP; the PC is wired,
-the Mac is on Wi-Fi). Default remote shell is cmd, wrap PowerShell as
-`powershell -NoProfile -Command "..."`.
+`C:\ProgramData\ssh\administrators_authorized_keys`. Connect with `ssh pc`
+(alias in the Mac's `~/.ssh/config` since 2026-07-19, pointing at
+`ians0@10.0.0.186`; LAN IP could change with DHCP — the PC is wired, the
+Mac is on Wi-Fi). Default remote shell is cmd, wrap PowerShell as
+`powershell -NoProfile -Command "..."`, and use backslash-free paths only
+inside PowerShell (cmd's `type` chokes on forward slashes).
 
 Useful patterns proven to work: tar-over-ssh for bulk pushes
 (`COPYFILE_DISABLE=1 tar -cf - . | ssh ians0@10.0.0.186 "tar -C D:/target -xf -"`),

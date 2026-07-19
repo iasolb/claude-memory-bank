@@ -1,6 +1,6 @@
 ---
 name: memory-bank-branch-workflow
-description: Per-machine branches (windows/mac) with Claude-run merge/commit/push; Mac one-time migration steps live here
+description: Per-machine branches (windows/mac) with Claude-run merge/commit/push; both machines migrated as of 2026-07-19
 metadata:
   type: project
 ---
@@ -16,21 +16,11 @@ full git autonomy in this repo only (merge, commit, push), scoped allows in
 settings.json; full policy in `rules/git-github.md`. `master` is dormant,
 never commit to it.
 
-**One-time Mac migration, do this early in the next Mac session:**
-
-1. Find the repo: `~/claude-memory-bank`, or `~/claude/claude-memory-bank`
-   if Ian has mirrored the PC's `~/claude` layout by then (he intends to;
-   creating `~/claude/session/{context,working,outputs}` goes with it, see
-   the session-dirs rule).
-2. `git fetch origin`, then `git switch -c mac origin/windows` (branch off
-   the windows tip so the hooks/settings/rules changes come along).
-3. `git push -u origin mac` (allowed here, scoped).
-4. If the repo path moved, re-run `install/mac.sh` from whatever directory
-   `claude` sessions launch from on the Mac (project-key gotcha, same one
-   documented in [[pc-layout]]).
-5. Sanity: `~/.claude/hooks/` shows the session-start-sync scripts, the
-   memory symlink resolves, and the next session opens with `[memory-bank]`
-   hook output.
-
-The same Mac session should also handle the machine-sync Mac install and the
-PC->Mac ssh bootstrap, see [[ssh-tooling-project]].
+Mac migration completed 2026-07-19: the repo lives at
+`~/claude/claude-memory-bank` (Ian mirrored the PC's `~/claude` layout,
+including `~/claude/session/{context,working,outputs}` and myToolBox), the
+`mac` branch was created off the `windows` tip and pushed, and
+`install/mac.sh` was re-run so all `~/.claude` symlinks and the memory
+symlink point at the new path. Both machines now live on their own branch.
+The machine-sync Mac install happened the same session, see
+[[ssh-tooling-project]].

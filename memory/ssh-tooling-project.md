@@ -1,6 +1,6 @@
 ---
 name: ssh-tooling-project
-description: "The cross-machine pipeline is now real, machine-sync in ~/claude/myToolBox; PC->Mac ssh still needs Mac-side setup"
+description: "machine-sync installed on both machines, Mac->PC transfers verified live; PC->Mac ssh blocked only on Remote Login toggle"
 metadata: 
   node_type: memory
   type: project
@@ -26,15 +26,20 @@ dir (`~/claude/session/working` on both). Optional `--csv` runs
 `~/.machine-sync.ps1` / `~/.machine-sync.env`; ignore list at
 `~/.machinesync-ignore`, never excludes `.git`.
 
-State as of 2026-07-19:
-- PC side installed and guard/path logic verified; live transfers untested.
-- PC->Mac ssh NOT yet working: Remote Login status on the Mac unknown, PC
-  keypair generated (`~/.ssh/id_ed25519`, comment `ians0-pc`), PC
-  `~/.ssh/config` has `Host mac` with placeholder `MACBOOK.local`, needs the
-  real LocalHostName. Full steps in `machine-sync/docs/setup.md`.
-- Mac side (install-mac.sh, config, `~/claude` mirror) waits for Ian's next
-  Mac session; `Host pc` alias also still to add there (see
-  [[pc-ssh-access]]).
+State as of 2026-07-19 (evening, Mac session):
+- Both sides installed. Mac: `install-mac.sh` run, seeded
+  `~/.machine-sync.env` defaults were already correct (MAINFRAME root,
+  `~/claude/session/working`), bin dir on PATH via `~/.zshrc`, `Host pc`
+  alias added (see [[pc-ssh-access]]).
+- First live transfer verified: `pull.pc.claude --from
+  personal/notes/websites-to-remember.txt` landed byte-correct in the
+  claude working dir (test copy deleted after).
+- PC->Mac ssh is one toggle away: the PC's pubkey (`ians0-pc`) is installed
+  in the Mac's `~/.ssh/authorized_keys`, and the PC's `~/.ssh/config`
+  `Host mac` placeholder was fixed to `Ians-MacBook-Pro.local` (done
+  remotely over ssh). Remaining: Ian turns on Remote Login on the Mac
+  (System Settings > General > Sharing — needs admin, sshd confirmed not
+  listening). Then test `ssh mac` from the PC.
 - Python 3.13.14 installed on the PC via winget 2026-07-19 (Ian's choice),
   user PATH puts it ahead of the Store stubs in any new terminal. csv-utf8
   verified end-to-end on it (cp1252/utf-16/utf-8-sig fixtures converted,

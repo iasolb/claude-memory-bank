@@ -28,7 +28,10 @@ superseded code zipped to `backups/superseded-code-2026-07.zip`):
   `D:\backups\` now (byte-verified, see [[pc-ssh-access]]). The Mac's
   `_transfer_to_pc/` and `backups/` dirs were deleted after verification.
 
-Claude config: `~/claude-memory-bank` (git, remote iasolb/claude-memory-bank)
-is symlinked into `~/.claude` via `install/mac.sh` as of 2026-07-18. The old
-config at `Desktop/MAINFRAME/Personal/Code/claude/` is retired but intact.
+The `~/claude` layout mirrors the PC's as of 2026-07-19:
+`~/claude/claude-memory-bank` (git, remote iasolb/claude-memory-bank,
+symlinked into `~/.claude` via `install/mac.sh`, `mac` branch),
+`~/claude/myToolBox` (machine-sync + csv-utf8), and
+`~/claude/session/{context,working,outputs}`. The old config at
+`Desktop/MAINFRAME/Personal/Code/claude/` is retired but intact.
 See [[memory-bank-ownership]].
