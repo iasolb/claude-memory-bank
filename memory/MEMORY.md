@@ -10,5 +10,5 @@
 - [Mac is the Ableton machine](mac-ableton-production.md): SAMPLE CORE and Music stay on the MacBook, never propose moving them
 - [Mac filesystem refactor](mac-filesystem-refactor.md): next Mac project as of 2026-07-19, full reorg of the messy filesystem, not yet planned
 - [PC SSH access](pc-ssh-access.md): key-authed `ssh pc` (ians0@10.0.0.186), tar-over-ssh transfer patterns, D:\backups holds the Mac offload
-- [SSH tooling project](ssh-tooling-project.md): machine-sync installed both machines, Mac->PC verified live 2026-07-19; PC->Mac waits only on Remote Login
+- [SSH tooling project](ssh-tooling-project.md): machine-sync fully operational, every path live-tested both directions 2026-07-19; gotcha list documented inside
 - [FinancialEdge + BRAIN state](financialedge-brain-state.md): both deployed (Oracle VM June 2026, HF Spaces May 2026)
