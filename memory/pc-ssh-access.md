@@ -5,6 +5,11 @@ metadata:
   type: reference
 ---
 
+Both directions work as of 2026-07-19: `ssh pc` from the Mac, `ssh mac`
+from the PC (HostName pinned to 10.0.0.9, Windows mDNS resolution of .local
+names is unreliable; PC keypair comment `ians0-pc`). Details and gotchas in
+[[ssh-tooling-project]].
+
 Set up 2026-07-18: Windows OpenSSH Server runs on the PC (see [[pc-layout]]),
 and the Mac's `~/.ssh/id_ed25519` key is installed in the PC's
 `C:\ProgramData\ssh\administrators_authorized_keys`. Connect with `ssh pc`

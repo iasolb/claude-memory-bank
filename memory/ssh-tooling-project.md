@@ -1,6 +1,6 @@
 ---
 name: ssh-tooling-project
-description: "machine-sync installed on both machines, Mac->PC transfers verified live; PC->Mac ssh blocked only on Remote Login toggle"
+description: "machine-sync fully operational both directions, E2E-tested 2026-07-19; environment gotchas (mDNS, SFTP scp, Mac python3 shim) documented inside"
 metadata: 
   node_type: memory
   type: project
@@ -34,12 +34,28 @@ State as of 2026-07-19 (evening, Mac session):
 - First live transfer verified: `pull.pc.claude --from
   personal/notes/websites-to-remember.txt` landed byte-correct in the
   claude working dir (test copy deleted after).
-- PC->Mac ssh is one toggle away: the PC's pubkey (`ians0-pc`) is installed
-  in the Mac's `~/.ssh/authorized_keys`, and the PC's `~/.ssh/config`
-  `Host mac` placeholder was fixed to `Ians-MacBook-Pro.local` (done
-  remotely over ssh). Remaining: Ian turns on Remote Login on the Mac
-  (System Settings > General > Sharing, needs admin; sshd confirmed not
-  listening). Then test `ssh mac` from the PC.
+- PC->Mac ssh live 2026-07-19 (Remote Login enabled) and the FULL E2E
+  checklist passed from the PC: dir pull with ignore filtering, single-file
+  pull, both claude variants, pushes to new/existing destinations, --csv
+  conversion verified byte-exact. Hardening that came out of it (all in
+  machine-sync, commit staged for Ian):
+  - `Host mac` pins IP 10.0.0.9, NOT the .local name: Windows mDNS
+    resolution is intermittent (works maybe half the time). If transfers
+    fail, the Mac's DHCP lease drifted; durable fix is a router reservation.
+    `StrictHostKeyChecking accept-new` is set.
+  - PC PowerShell resolves ssh AND tar to Git for Windows' builds (PATH
+    shadowing); scripts pin System32 natives explicitly. Git's ssh cannot
+    resolve .local; Git's GNU tar cannot take `C:\` in `-C`.
+  - PC has OpenSSH 9.5p1: scp is SFTP-mode, remote paths are literal, never
+    quote-wrap them.
+  - ssh probes use `-n` (else they eat stdin meant for the y/N confirm) and
+    treat ssh exit 255 as "peer unreachable, abort" rather than "false".
+  - Push confirm fails closed ($null from Read-Host at stdin EOF bypassed
+    -notmatch; the work reference tool has this same latent bug).
+  - The Mac's non-interactive `python3` is a BROKEN xcode-select shim
+    (dlopen error, Xcode CLT damage; interactive shells get a real one).
+    push --csv to the Mac therefore skips gracefully. Ian may want to fix
+    CLT on the Mac (`xcode-select --install`) to light that path up.
 - Python 3.13.14 installed on the PC via winget 2026-07-19 (Ian's choice),
   user PATH puts it ahead of the Store stubs in any new terminal. csv-utf8
   verified end-to-end on it (cp1252/utf-16/utf-8-sig fixtures converted,
